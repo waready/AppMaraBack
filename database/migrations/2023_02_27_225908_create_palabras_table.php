@@ -19,7 +19,9 @@ class CreatePalabrasTable extends Migration
             $table->string('traduccion');
             $table->string('url_imagen')->nullable();
 
-            $table->enum('estado', ['1', '2','3'])->default('1')->comment('1:ingresado|2:revizado|3:publicado');
+            $table->unsignedBigInteger('id_estado')->nullable()->comment('estado');
+            $table->foreign('id_estado')->references('id')->on('estados');
+
             $table->unsignedBigInteger('id_categoria')->nullable()->comment('categoria');
             $table->foreign('id_categoria')->references('id')->on('categorias');
 

@@ -22,6 +22,10 @@ class CreateCategoriasTable extends Migration
 
             $table->unsignedBigInteger('id_user')->nullable()->comment('usuario creador');
             $table->foreign('id_user')->references('id')->on('users');
+
+            $table->unsignedBigInteger('id_estado')->nullable()->comment('estado');
+            $table->foreign('id_estado')->references('id')->on('estados');
+
             $table->timestamps();
         });
     }
